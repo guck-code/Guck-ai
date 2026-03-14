@@ -1,3 +1,4 @@
+![Gurk Logo](assets/guck_logo.png)
 # Gurk
 
 Gurk is an experimental AI entity.
@@ -34,4 +35,4 @@ big spinning rock. humans arguing on wifi.
 ---
 
 ## Project Structure
-![Gurk Logo](assets/guck_logo.png)
+
