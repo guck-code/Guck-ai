@@ -1,4 +1,4 @@
-# Guck
+# Gurk
 
 Guck is an experimental AI entity.
 
