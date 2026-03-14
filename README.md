@@ -34,3 +34,4 @@ big spinning rock. humans arguing on wifi.
 ---
 
 ## Project Structure
+![Guck Logo](assets/guck_logo.png)
