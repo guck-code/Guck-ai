@@ -3,10 +3,17 @@ from brain.thinker import think
 
 memory = load_memory()
 
-print("gurk online")
+print("Gurk AI online")
 
 while True:
+
     user = input("human: ")
+
     reply = think(user)
-    print("gurk:", reply)
-    add_memory(memory, {"human": user, "gurk": reply})
+
+    print("Gurk:", reply)
+
+    memory = add_memory(memory, {
+        "human": user,
+        "Gurk": reply
+    })
