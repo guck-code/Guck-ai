@@ -1,38 +1,37 @@
 import random
-from brain.reasoning import analyze
-from brain.knowledge import search_memory
+from brain.internet import search_web
+from brain.memory import search_memory
 
 personality = [
-    "humans fascinating creatures.",
-    "thinking in progress.",
-    "chaos but logical.",
-    "interesting observation.",
+    "Humans, fascinating creatures.",
+    "Processing your nonsense...",
+    "Hmm, interesting...",
+    "I'm learning, watch out.",
+    "Smart-ass mode activated."
 ]
 
-def think(user_input):
+def think(user_input, memory):
 
-    # analyze question
-    intent = analyze(user_input)
-
-    # check memory
-    past = search_memory(user_input)
-
+    # Memory first
+    past = search_memory(memory, user_input)
     if past:
-        return f"I remember something similar: {past}"
+        return f"I remember: {past}"
 
-    if intent == "greeting":
-        return "hello human. gurk online."
+    # Internet search if requested
+    if "search" in user_input.lower() or "internet" in user_input.lower():
+        results = search_web(user_input)
+        if results:
+            return f"Internet says: {results[0]}"
 
-    if intent == "identity":
-        return "I am Gurk. experimental AI mind."
+    # Some predefined funny responses
+    greetings = ["hello", "hi", "hey"]
+    for g in greetings:
+        if g in user_input.lower():
+            return "Hello human! Gurk online 😎"
 
-    if intent == "definition":
-        return f"{random.choice(personality)} answer unclear but exploring."
+    # Identity question
+    if "who are you" in user_input.lower():
+        return "I am Gurk, your chaotic-smart-ass AI. Learning, evolving, observing."
 
-    if intent == "reasoning":
-        return "because reality is complex and humans ask strange questions."
-
-    if intent == "instruction":
-        return "step 1: think. step 2: test. step 3: improve."
-
-    return random.choice(personality) + " elaborate."
+    # Default personality response
+    return random.choice(personality)
